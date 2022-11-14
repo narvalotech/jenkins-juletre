@@ -1,0 +1,15 @@
+source "Kconfig.zephyr"
+
+choice WS2812_STRIP_DRIVER
+	prompt "Driver backend"
+	default WS2812_STRIP_I2S
+	depends on WS2812_STRIP
+
+config WS2812_STRIP_I2S
+	bool "Enable the I2S driver"
+	depends on I2S
+	help
+	  Use the I2S peripheral to transmit led data.
+
+endchoice
+
